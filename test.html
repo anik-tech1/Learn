@@ -1,0 +1,143 @@
+
+ <?php
+	if(!empty($_POST))
+	{
+		$to = "mahadev.jpr@gmail.com";
+		$subject = "Enquiry";
+		$message = 'Name :  '.$_POST['name'].'<br /> <br /> Phone :  '.$_POST['phone'].'<br /> <br /> Message :  '.$_POST['comment'];
+		$from = "test@mejaipur.com";  //$_POST['email'];
+		$headers  = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+		$headers .= "From:" . $from;
+		mail($to,$subject,$message,$headers);
+		$msg = "Mail sent successfully!";
+	}
+?>	
+
+<script type="text/javascript">
+function reservation(reservation_form)
+{
+	var str_name=document.getElementById("name111").value;
+	var str_mobile=document.getElementById("phone111").value;
+	var str_message=document.getElementById("comment111").value;
+	
+	if(str_name=="")
+	{
+		alert ("Name Cannot be Empty!!!");
+		document.getElementById("name111").focus();
+		return false;
+	}
+	
+	if(str_mobile=="")
+	{
+		alert ("Mobile No. Cannot be Empty!!!");
+		document.getElementById("phone111").focus();
+		return false;
+	}
+	
+	if(str_message=="")
+	{
+		alert ("Message Cannot be Empty!!!");
+		document.getElementById("comment111").focus();
+		return false;
+	}
+	return true;
+
+}
+
+function check_name()
+{
+	var str=document.getElementById("name111").value;
+	var words = str.split(" "); 
+	for (var i=0 ; i < words.length ; i++)
+	{ 
+    	var testwd = words[i]; 
+      	var firLet = testwd.substr(0,1); 
+     	var rest = testwd.substr(1, testwd.length -1) 
+    	words[i] = firLet.toUpperCase() + rest 
+   	} 
+	var mixture=words.join(" "); 	
+	
+	var pattern = /[a-zA-z ]/;
+		for(var i=0; i<mixture.length; i++)
+		{
+        	if (pattern.test(mixture.charAt(i))) 
+			{	  
+        	
+			} 
+		else
+		{
+            alert("Enter Alphabets only!");
+            
+			document.getElementById("name111").value=""; 
+			document.getElementById("name111").focus();
+			return false;
+		}		
+		}
+			document.getElementById("name111").value=mixture;
+		 	return true;
+}
+
+function check_message()
+{
+	var str=document.getElementById("comment111").value;
+	var words = str.split(" "); 
+	for (var i=0 ; i < words.length ; i++)
+	{ 
+    	var testwd = words[i]; 
+      	var firLet = testwd.substr(0,1); 
+     	var rest = testwd.substr(1, testwd.length -1) 
+    	words[i] = firLet.toUpperCase() + rest 
+   	} 
+	var mixture=words.join(" "); 	
+	
+	document.getElementById("comment111").value=mixture;
+	return true;
+}
+
+function validate_mobile() {
+        var mobile = document.getElementById("phone111").value;
+        var pattern = /^\d{10}$/;
+        if (pattern.test(mobile)) {
+            
+            return true;
+        } 
+           alert("Enter 10 Digits Numeric Value Only");
+            
+			document.getElementById("phone111").value=""; 
+			document.getElementById("phone111").focus();
+			return false;
+    }
+
+function empty_check()
+{
+
+	
+	
+}
+</script>
+
+<h1>Feel free to send us a message</h1>
+                        <div id="contact_form">
+						
+						<?php if(!empty($msg)){?> <script type="text/javascript"> alert('<?php echo $msg; ?>'); </script> <?php } ?>
+						
+                             <form id="form1" name="reservation_form"  method="post"  onSubmit="return reservation();">
+                                
+                                <label for="author">Your Name :</label> <input name="name" value="" onchange="check_name()"  type="text" class="input_field" id="name111">
+                                <div class="cleaner_h10"></div>
+                                
+                                <label for="email">Contact No. :</label> <input name="phone" value="" onchange="validate_mobile()"  type="text" class="input_field" id="phone111" maxlength="10">
+                                <div class="cleaner_h10"></div>
+                                
+                                <label for="text">Query & Order :</label> <textarea id="comment111" value="" onchange="check_message()"  name="comment" rows="0" cols="0" class="textarea"></textarea>
+                                <div class="cleaner_h10"></div>
+                                
+                               
+                                <input type="reset" class="submit_btn" name="reset" id="reset" value="Reset" />
+								 <input type="submit" class="submit_btn" name="submit" id="submit111"  value="Send" />
+                            
+                            </form>
+						</div>
+contact_us.php
+Displaying contact_us.php.

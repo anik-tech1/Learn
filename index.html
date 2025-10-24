@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+        }
+        #n1{
+            position: fixed;
+            top: 45%;
+            font-size: 50px;
+            
+        }
+        #n2{
+            position: absolute;
+            bottom: 20px;
+            background: #ffffff;
+            border-radius: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="n1"></h1>
+    <div id="n2">
+        <label>Speed:</label>
+        <input type="number" name="speedl" id="speed" value="1" min="1" max="6" step="1">
+    </div>
+ <script>
+    var s = "aniket....."; 
+    var i = 1 ; 
+    var len = s.length;
+    const time = document.getElementById("speed");
+    var speed = 300/time.value;
+    function fn()
+    { 
+        if(i<=len+1)
+    {
+          document.getElementById("n1").innerText = s.slice(0,i);
+    }
+    i++;
+    if(i>=len+1)
+    {
+        i=0;
+    }
+    setTimeout(fn,speed);
+    
+}
+fn();
+time.addEventListener("input", (e) => (speed = 300 / e.target.value));
+    
+    
+ </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea onchange="fn()" id="capital"></textarea>
+ <script>
+    function fn(){
+        var letter = document.getElementById("capital").value;
+        var arr = letter.split(" ");
+        for (var i = 0; i < arr.length; i++) {
+            var main = arr[i];
+            var first = main.substr(0,1);
+            var rest = main.substr(1,main.length-1)
+            arr[i] = first.toUpperCase() + rest.toLowerCase()
+        }
+        var result = arr.join(" ");
+        document.getElementById("capital").value = result;
+    }
+
+    </script>
+</body>
+</html>

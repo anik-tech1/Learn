@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <textarea onchange="check_name()" id="comment111"></textarea>
+    <script>
+function check_name()
+{
+	var str=document.getElementById("comment111").value;
+	var words = str.split(" ");   // convert string inro array
+	for (var i=0 ; i < words.length ; i++)
+	{ 
+    	var testwd = words[i]; 
+      	var firLet = testwd.substr(0,1); 
+     	var rest = testwd.substr(1, testwd.length -1) 
+    	words[i] = firLet.toUpperCase() + rest 
+   	} 
+	var mixture=words.join(" ");  // convert array to string
+
+    document.getElementById("comment111").value=mixture;
+
+}
+    </script>
+</body>
+</html>

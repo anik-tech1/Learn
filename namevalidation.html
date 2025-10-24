@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Name : <input type="text" id="n1"/>
+    <button onclick="fn()">CLICK HERE</button>
+    <script>
+        function fn(){
+            var name = document.getElementById("n1").value;
+            if(name=="")
+    {
+        alert("Enter Any Name");
+    }
+    else{
+        var alpha = "^[a-z-A-Z]*$";
+        var c = name.match(alpha);
+        if (c == null){
+            alert("enter only alphabet");
+            document.getElementById("n1").value="";
+        document.getElementById("n1").focus();
+        }
+    }
+        }
+
+    </script>
+</body>
+</html>

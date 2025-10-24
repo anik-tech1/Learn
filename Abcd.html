@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1">
+
+    <p class="p1">
+        hello
+    </p>
+
+     <p class="p1">
+        hivbgfh
+    </p>
+     <p class="p1">
+        fsgtrdytuytiu
+    </p>
+     <p class="p1">
+        fsrdty
+    </p>
+</div>
+    <button class="btn1">clcik</button>
+
+    <script>
+        var d1 = document.getElementById("d1").querySelectorAll(".p1");
+        var btnn=document.querySelector(".btn1");
+
+        btnn.addEventListener("click",fn);
+
+        function fn()
+        {
+            for(var i=0; i<d1.length; i++)
+        {
+            d1[i].style.color="red";
+            
+        }
+        }
+
+    </script>
+    
+</body>
+</html>
